@@ -35,6 +35,4 @@ Client:
 
 # References:
 
-* Express middleware: https://github.com/senchalabs/connect/wiki
-* Reference project: https://github.com/madhums/node-express-mongoose-demo
 * Backbone tutorial: http://www.codebeerstartups.com/2012/12/12-listening-to-dom-events-in-backbone-js-learning-backbone-js/
