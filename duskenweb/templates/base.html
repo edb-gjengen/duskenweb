@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" type="text/css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/app.css" type="text/css" />
+</head>
+<body>
+
+    <header class="title-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>D.U.S.K.E.N.</h1>
+                    <em>Dårlig Utrustet Studentsystem som Kan Endre Norge</em>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    {% block content %}
+    {% endblock %}
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}/js/dusken.js"></script>
+    <script src="{{ STATIC_URL }}/js/application.js"></script>
+</body>

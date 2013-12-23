@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <form role="form">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="errors"></div>
+            </div>
+        </div>
+        <div class="row social-login">
+            <div class="col-md-5">
+                <button class="btn btn-facebook-login"><i class="fa fa-facebook"></i> <span>Logg inn med Facebook</span></button>
+                <div class="subtitle"><small>Det går raskest</small></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 register-with-email">
+                <div class="seperator"><span class="text">Eller</span></div>
+                <input id="email" name="email" type="email" placeholder="E-post" class="form-control" />
+                <br/>
+                <button class="btn btn-primary btn-lg btn-block">Bli medlem</button>
+                <br/>
+                <div class="text-right">Allerede medlem? <a href="/login">Logg inn</a></div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

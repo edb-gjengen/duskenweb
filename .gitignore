@@ -1,0 +1,8 @@
+/.idea/
+*.swp
+*.pyc
+*.bak
+.sass-cache
+db.sqlite3
+node_modules
+venv

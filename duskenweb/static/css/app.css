@@ -1,0 +1,78 @@
+/* line 1, ../sass/app.scss */
+.title-header {
+  margin-bottom: 3em;
+}
+
+/* line 4, ../sass/app.scss */
+.social-login {
+  text-align: center;
+}
+/* line 7, ../sass/app.scss */
+.social-login .btn-facebook-login {
+  width: 250px;
+  height: 40px;
+  background-color: #3b5998;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 -1px black;
+  font-size: 24px;
+  padding: 0;
+}
+/* line 17, ../sass/app.scss */
+.social-login .btn-facebook-login span {
+  font-size: 16px;
+  position: relative;
+  top: -1px;
+}
+/* line 23, ../sass/app.scss */
+.social-login .btn-facebook-login i {
+  position: relative;
+  top: 2px;
+  padding-right: 6px;
+}
+/* line 29, ../sass/app.scss */
+.social-login .btn-facebook-login:hover, .social-login .btn-facebook-login:focus {
+  background-color: #2f477a;
+  color: white;
+  outline: 0;
+}
+
+/* line 38, ../sass/app.scss */
+.subtitle {
+  color: #555;
+}
+
+/* line 41, ../sass/app.scss */
+.seperator {
+  margin: 1em 1em;
+  text-align: center;
+}
+/* line 45, ../sass/app.scss */
+.seperator .text {
+  padding-left: 4px;
+  padding-right: 4px;
+  font-style: italic;
+}
+/* line 51, ../sass/app.scss */
+.seperator:before {
+  display: inline-block;
+  content: '';
+  width: 30%;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: .25em;
+}
+/* line 59, ../sass/app.scss */
+.seperator:after {
+  display: inline-block;
+  content: '';
+  width: 30%;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: .25em;
+}
+
+/* line 68, ../sass/app.scss */
+.text-center {
+  text-align: center;
+}

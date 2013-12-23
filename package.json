@@ -1,0 +1,16 @@
+{
+  "name": "duskenweb",
+  "version": "0.0.1",
+  "description": "",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-compass": "latest",
+    "matchdep": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.neuf.no:duskenweb"
+  },
+  "license": "GPL"
+}
