@@ -7,17 +7,25 @@
     cd duskenweb
     cp settings-sample.py settings.py
     cd ..
-    ./manage.py syncdb --all
-    ./manage.py runserver
+    python manage.py syncdb --all
+    python manage.py runserver
 
     npm install
     grunt watch
+
 
 # TODO
 
 * Purchase membership-flow
 * https
 * cookies: secure, httpOnly
+
+# Development
+
+    # Run with SSL on port 8002 (needs stunnel4 package)
+    stunnel4 ssl/dev_https.conf
+    HTTPS=on python manage.py runserver localhost:8001
+    gnome-open https://localhost:8002
 
 ## Client: 
 
