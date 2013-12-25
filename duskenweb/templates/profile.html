@@ -8,6 +8,15 @@
                 <li>Username: '{{user.username}}'</li>
                 <li>Email: '{{user.email}}'</li>
             </ul>
+            <h4>Actions</h4>
+            <ul>
+                <li><a href="{% url 'members_list' %}">List members</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{% url 'logout' %}">Logout</a>
         </div>
     </div>
 </div>

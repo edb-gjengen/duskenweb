@@ -1,6 +1,6 @@
 /* line 1, ../sass/app.scss */
 .title-header {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 /* line 4, ../sass/app.scss */
@@ -30,7 +30,7 @@
   top: 2px;
   padding-right: 6px;
 }
-/* line 29, ../sass/app.scss */
+/* line 30, ../sass/app.scss */
 .social-login .btn-facebook-login:hover, .social-login .btn-facebook-login:focus {
   background-color: #2f477a;
   color: white;

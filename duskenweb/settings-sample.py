@@ -104,12 +104,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = "/profile/"
+LOGIN_URL = "/login/"
 
-DUSKEN_CLIENT_ID = 'd802768a8afd9dec2660'
-DUSKEN_CLIENT_SECRET = '3962467fe60a94727812053c8a4f44533f4ef610'
+DUSKEN_CLIENT_ID = ''
+DUSKEN_CLIENT_SECRET = ''
+# Dusken API system user
+DUSKEN_USERNAME = 'duskenweb' 
+DUSKEN_PASSWORD = ''
 
 CORS_ORIGIN_ALLOW_ALL = True
-# Allow Ajax calls only from tuple of domain:port
+# Allow Ajax calls only from domain:port
 #CORS_ORIGIN_WHITELIST = (
 #    '127.0.0.1:3000',
 #    'dusken.neuf.no:3000',

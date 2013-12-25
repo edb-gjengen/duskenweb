@@ -19,7 +19,8 @@
 * https
 * cookies: secure, httpOnly
 
-Client: 
+## Client: 
+
 * Rewrite client side code in Backbone.js
     * Start here: https://github.com/backbone-boilerplate/backbone-boilerplate
     * Backbone Extensions:

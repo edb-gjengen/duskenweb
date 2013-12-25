@@ -13,6 +13,8 @@ urlpatterns = patterns('',
 urlpatterns += patterns('duskenweb.views',
     url(r'^$', 'home', name='home'),
     url(r'^profile/$', 'profile', name='profile'),
+    url(r'^members/$', 'members_list', name='members_list'),
+
 )
 
 # Authentication views
