@@ -28,8 +28,9 @@ urlpatterns += patterns('duskenweb.views',
     url(r'^$', 'home', name='home'),
     url(r'^profile/$', 'profile', name='profile'),
     url(r'^account/$', 'account', name='account'),
-    url(r'^members/$', 'members_list', name='members_list'),
-    url(r'^memberships/$', 'memberships_list', name='memberships_list'),
+    url(r'^members/$', 'members_list', name='members-list'),
+    url(r'^memberships/$', 'memberships_list', name='memberships-list'),
+    url(r'^membership/purchase$', 'membership_purchase', name='membership-purchase'),
 
 )
 

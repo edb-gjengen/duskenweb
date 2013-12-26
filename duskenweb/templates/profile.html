@@ -4,18 +4,34 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h4>{{me.first_name}} {{me.last_name }}</h4>
+            <h4><i class="glyphicon glyphicon-user"></i> {{me.first_name}} {{me.last_name }}</h4>
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="glyphicon glyphicon-user"></i> Profile</h3>
+                            <h3 class="panel-title">Profile</h3>
                         </div>
                         <ul class="list-group">
                             <li class="list-group-item">Name: {{me.first_name}} {{me.last_name}}</li>
                             <li class="list-group-item">Username: {{me.username}}</li>
                             <li class="list-group-item">Email: {{me.email}}</li>
+                            <li class="list-group-item">Facebook <i class="glyphicon glyphicon-ok"></i> Google+ <i class="glyphicon glyphicon-ok"></i> </li>
                         </ul>
+                    </div>
+                    <div class="panel {% if me.has_valid_membership %}panel-success{%else%}panel-warning{%endif%}">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Membership</h3>
+                        </div>
+                        <div class="panel-body">
+                            {% if me.has_valid_membership %}
+                                {% for membership in me.memberships %}
+                                <i class="glyphicon glyphicon-ok"></i> Valid until DATE
+                                {% endfor %}
+                            {% else %}
+                                <p>Not valid (expired DATE)</p>
+                                <a href="{% url 'membership-purchase' %}" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-plus"></i> Purchase membership</a>
+                            {% endif %}
+                        </div>
                     </div>
                     {% if user.is_staff %}
                     <div class="panel panel-default">
@@ -24,7 +40,7 @@
                         </div>
                         <div class="panel-body">
                             <ul>
-                                <li><a href="{% url 'members_list' %}">List members</a></li>
+                                <li><a href="{% url 'members-list' %}">List members</a></li>
                                 <li><a href="/admin/">Django admin</a></li>
                             </ul>
                             <div class="">
@@ -34,32 +50,52 @@
                     {% endif %}
                 </div>
                 <div class="col-md-6">
-                    <div class="panel {% if me.has_valid_membership %}panel-success{%else%}panel-warning{%endif%}">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Membership</h3>
-                        </div>
-                        <div class="panel-body">
-                            {% if me.has_valid_membership %}
-                                {% for membership in me.memberships %}
-                                <i class="glyphicon glyphicon-ok"></i> Valid until {{ me.}}
-                                {% endfor %}
-                            {% else %}
-                                Not valid (expired DATE)
-                            {% endif %}
-                        </div>
-                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Your Groups <span class="badge">{{ me.groups|length}}</span></h3>
                         </div>
-                            {% if not me.groups %}
-                            No groups
-                            {% endif %}
-                            <ul class="list-group">
-                                {% for group in me.groups %}
-                                <li class="list-group-item">{{ group }}</li>
-                                {% endfor %}
-                            </ul>
+                        {% if not me.groups %}
+                            <div class="panel-body">No groups</div>
+                        {% endif %}
+                        <ul class="list-group">
+                            {% for group in me.groups %}
+                            <li class="list-group-item">group-name-shows-up-here:{{ group }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Your Divisions{% if me.divisions %} <span class="badge">{{ me.divisions|length}}</span>{% endif %}</h3>
+                        </div>
+                        {% if not me.visions %}
+                            <div class="panel-body">
+                            <p>
+                                Not part of any divisions. <a href="https://studentersamfundet.no/bli-aktiv/" class="btn btn-default">How do I get involved?</a>
+                            </p>
+                            </div>
+                        {% endif %}
+                        <ul class="list-group">
+                            {% for division in me.divisions %}
+                            <li class="list-group-item">{{ division }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Your Mailinglists{% if mailinglists_list %} <span class="badge">{{ mailinglist_lists|length}}</span>{% endif %}</h3>
+                        </div>
+                        {% if not mailinglists_list %}
+                            <div class="panel-body">
+                            <p>
+                                Not on any mailinglists. <a href="#" class="btn btn-default">Subscribe</a>
+                            </p>
+                            </div>
+                        {% endif %}
+                        <ul class="list-group">
+                            {% for mailinglist in mailinglists_list %}
+                            <li class="list-group-item">{{ mailinglist }}</li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>
