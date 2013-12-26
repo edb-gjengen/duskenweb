@@ -7,18 +7,8 @@ from longerusername.forms import AuthenticationForm
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-)
-urlpatterns += patterns('duskenweb.views',
-    url(r'^$', 'home', name='home'),
-    url(r'^profile/$', 'profile', name='profile'),
-    url(r'^members/$', 'members_list', name='members_list'),
-
-)
-
 # Authentication views
-urlpatterns += patterns('django.contrib.auth.views',
+urlpatterns = patterns('django.contrib.auth.views',
     url(r'^login/$', 'login', {'authentication_form': AuthenticationForm}, name='login'),
     url(r'^logout/$', 'logout', name='logout'),
     url(r'^password/change/$', # skip entering old password
@@ -32,4 +22,17 @@ urlpatterns += patterns('django.contrib.auth.views',
         'password_reset_confirm',
         name='password_reset_confirm'),
 	url(r'^password/reset/complete/$', 'password_reset_complete', name='password_reset_complete'),
+)
+
+urlpatterns += patterns('duskenweb.views',
+    url(r'^$', 'home', name='home'),
+    url(r'^profile/$', 'profile', name='profile'),
+    url(r'^account/$', 'account', name='account'),
+    url(r'^members/$', 'members_list', name='members_list'),
+    url(r'^memberships/$', 'memberships_list', name='memberships_list'),
+
+)
+
+urlpatterns += patterns('',
+    url(r'^admin/', include(admin.site.urls)),
 )
