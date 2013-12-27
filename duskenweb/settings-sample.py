@@ -106,6 +106,7 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = "/profile/"
 LOGIN_URL = "/login/"
 
+DUSKEN_BASE_URL= 'https://duskendev.neuf.no'
 DUSKEN_CLIENT_ID = ''
 DUSKEN_CLIENT_SECRET = ''
 # Dusken API system user
