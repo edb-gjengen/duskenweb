@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Dusken - My profile{% endblock %}
 {% block content %}
+{% load myfilters %}
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h4><i class="glyphicon glyphicon-user"></i> {{me.first_name}} {{me.last_name }}</h4>
+            <h4><img src="http://www.gravatar.com/avatar/{{user.email|lower|md5}}" class="img-circle img-profile"/> {{user.first_name}} {{user.last_name }}</h4>
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-default">
@@ -12,23 +13,24 @@
                             <h3 class="panel-title">Profile</h3>
                         </div>
                         <ul class="list-group">
-                            <li class="list-group-item">Name: {{me.first_name}} {{me.last_name}}</li>
                             <li class="list-group-item">Username: {{me.username}}</li>
                             <li class="list-group-item">Email: {{me.email}}</li>
-                            <li class="list-group-item">Facebook <i class="glyphicon glyphicon-ok"></i> Google+ <i class="glyphicon glyphicon-ok"></i> </li>
+                            <li class="list-group-item">Phone number: {{me.phone_number}}</li>
+                            <!-- TODO: Connected accounts -->
+                            <!--<li class="list-group-item">Facebook <i class="glyphicon glyphicon-ok"></i> Google+ <i class="glyphicon glyphicon-ok"></i> </li>-->
                         </ul>
                     </div>
                     <div class="panel {% if me.has_valid_membership %}panel-success{%else%}panel-warning{%endif%}">
                         <div class="panel-heading">
                             <h3 class="panel-title">Membership</h3>
                         </div>
-                        <div class="panel-body">
+                        <div class="list-group">
                             {% if me.has_valid_membership %}
                                 {% for membership in me.memberships %}
-                                <i class="glyphicon glyphicon-ok"></i> Valid until DATE
+                                <a href="/membership/{{membership.id}}/" class="list-group-item"><i class="glyphicon glyphicon-ok"></i> Valid until {{ membership.expires }}</a>
                                 {% endfor %}
                             {% else %}
-                                <p>Not valid (expired DATE)</p>
+                                <p>Not valid (REASON - expired DATE - needs payment)</p>
                                 <a href="{% url 'membership-purchase' %}" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-plus"></i> Purchase membership</a>
                             {% endif %}
                         </div>
@@ -57,28 +59,30 @@
                         {% if not me.groups %}
                             <div class="panel-body">No groups</div>
                         {% endif %}
-                        <ul class="list-group">
+                        <div class="list-group">
                             {% for group in me.groups %}
-                            <li class="list-group-item">group-name-shows-up-here:{{ group }}</li>
+                            <a href="/group/{{ group.id }}/" class="list-group-item">{{ group.name }}</a>
                             {% endfor %}
-                        </ul>
+                        </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Your Divisions{% if me.divisions %} <span class="badge">{{ me.divisions|length}}</span>{% endif %}</h3>
                         </div>
-                        {% if not me.visions %}
+                        {% if not me.divisions %}
                             <div class="panel-body">
                             <p>
                                 Not part of any divisions. <a href="https://studentersamfundet.no/bli-aktiv/" class="btn btn-default">How do I get involved?</a>
                             </p>
                             </div>
                         {% endif %}
-                        <ul class="list-group">
+                        <div class="list-group">
                             {% for division in me.divisions %}
-                            <li class="list-group-item">{{ division }}</li>
+                            {% if division.is_active %}
+                            <a href="/division/{{ division.id}}/" class="list-group-item">{{ division.name }}</a>
+                            {% endif %}
                             {% endfor %}
-                        </ul>
+                        </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
