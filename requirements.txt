@@ -3,5 +3,7 @@ django-extensions==1.2.5
 django-cors-headers==0.12
 psycopg2==2.5.1
 South==0.8.4
-#-e git://git.neuf.no/pydusken.git#egg=pydusken
--e ../pydusken
+-e git://git.neuf.no/pydusken.git#egg=pydusken
+# for local dev
+#-e ../pydusken
+

@@ -16,6 +16,7 @@
                             <li class="list-group-item">Username: {{me.username}}</li>
                             <li class="list-group-item">Email: {{me.email}}</li>
                             <li class="list-group-item">Phone number: {{me.phone_number}}</li>
+                            <li class="list-group-item">Address: {{me.address.full }}</li>
                             <!-- TODO: Connected accounts -->
                             <!--<li class="list-group-item">Facebook <i class="glyphicon glyphicon-ok"></i> Google+ <i class="glyphicon glyphicon-ok"></i> </li>-->
                         </ul>
@@ -65,7 +66,7 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <!--<div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Your Divisions{% if me.divisions %} <span class="badge">{{ me.divisions|length}}</span>{% endif %}</h3>
                         </div>
@@ -83,7 +84,7 @@
                             {% endif %}
                             {% endfor %}
                         </div>
-                    </div>
+                    </div>-->
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Your Mailinglists{% if mailinglists_list %} <span class="badge">{{ mailinglist_lists|length}}</span>{% endif %}</h3>
