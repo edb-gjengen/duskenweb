@@ -1,6 +1,7 @@
 Django==1.6.1
 django-extensions==1.2.5
 django-cors-headers==0.12
+longerusername==0.4
 psycopg2==2.5.1
 South==0.8.4
 -e git://git.neuf.no/pydusken.git#egg=pydusken
