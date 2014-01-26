@@ -19,9 +19,7 @@ def profile(request, template_name='profile.html'):
         user_api_conn.set_access_token(request.user.duskenaccesstoken.access_token)
 
     me = user_api_conn.members.me()['objects'][0]
-    # TODO remove debug
-    import pprint
-    pprint.pprint(me)
+
     return render(request, template_name, locals())
 
 @login_required
@@ -31,6 +29,7 @@ def account(request, template_name='account.html'):
         user_api_conn.set_access_token(request.user.duskenaccesstoken.access_token)
 
     me = user_api_conn.members.me()
+
     return render(request, template_name)
 
 @login_required
