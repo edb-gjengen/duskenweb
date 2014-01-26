@@ -58,8 +58,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-      'pydusken.authentication.DuskenBackend',
       'django.contrib.auth.backends.ModelBackend',
+      'pydusken.authentication.DuskenBackend',
 )
 
 ROOT_URLCONF = 'duskenweb.urls'
