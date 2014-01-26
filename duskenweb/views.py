@@ -13,6 +13,7 @@ def home(request, template_name='index.html'):
 
 @login_required
 def profile(request, template_name='profile.html'):
+    # TODO put access_token in session - https://docs.djangoproject.com/en/1.5/topics/http/sessions/ 
     # TODO put these two lines somewhere else, on authenticate?
     if not user_api_conn.is_authenticated() and request.user.duskenaccesstoken:
         user_api_conn.set_access_token(request.user.duskenaccesstoken.access_token)
